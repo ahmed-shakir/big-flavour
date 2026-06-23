@@ -7,9 +7,9 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 data class StatusColor(
-    val success: Color = Color(0xFF00FF00),
-    val error: Color = Color(0xFFFF0000),
-    val warning: Color = Color(0xFFFFD700),
+    val success: Color = Color(0xFF2E7D32),
+    val warning: Color = Color(0xFFFFB84A),
+    val error: Color = Color(0xFFBA1A1A)
 )
 
 val LocalStatus = compositionLocalOf { StatusColor() }

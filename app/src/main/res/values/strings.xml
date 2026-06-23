@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Big Flavour</string>
+
+    <string name="main_section_title">Big Flavour</string>
+    <string name="main_section_location">Dubai</string>
+    <string name="main_section_button_order">Order</string>
+    <string name="main_section_description">Welcome to Big Flavour where the flavour sticks with you and makes you visit us again and again.</string>
 </resources>
