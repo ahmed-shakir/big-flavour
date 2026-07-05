@@ -32,6 +32,15 @@ private val LightColorScheme = lightColorScheme(
     surface = Latte,
     onSurface = CoffeeBlack,
 
+    surfaceDim = Color(0xFFEDE5DC),
+    surfaceBright = Color(0xFFFFFCF9),
+
+    surfaceContainerLowest = Color.White,
+    surfaceContainerLow = Color(0xFFFBF6F1),
+    surfaceContainer = Latte,
+    surfaceContainerHigh = Color(0xFFF0E8DF),
+    surfaceContainerHighest = Color(0xFFE9DFD7),
+
     surfaceVariant = Color(0xFFE9DFD7),
     onSurfaceVariant = CoffeeGray,
 
@@ -65,6 +74,15 @@ private val DarkColorScheme = darkColorScheme(
 
     surface = Color(0xFF1D1613),
     onSurface = WarmWhite,
+
+    surfaceDim = Color(0xFF17110E),
+    surfaceBright = Color(0xFF322722),
+
+    surfaceContainerLowest = Color(0xFF120D0B),
+    surfaceContainerLow = Color(0xFF1A1411),
+    surfaceContainer = Color(0xFF231B17),
+    surfaceContainerHigh = Color(0xFF2B221E),
+    surfaceContainerHighest = Color(0xFF352B26),
 
     surfaceVariant = Color(0xFF3A2E28),
     onSurfaceVariant = Color(0xFFD8C5BB),
