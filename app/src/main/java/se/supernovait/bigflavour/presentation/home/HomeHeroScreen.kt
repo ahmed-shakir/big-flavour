@@ -1,4 +1,4 @@
-package se.supernovait.bigflavour.presentation
+package se.supernovait.bigflavour.presentation.home
 
 import android.widget.Toast
 import androidx.compose.foundation.Image

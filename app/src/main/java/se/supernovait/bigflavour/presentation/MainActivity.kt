@@ -1,4 +1,4 @@
-package se.supernovait.bigflavour
+package se.supernovait.bigflavour.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import se.supernovait.bigflavour.presentation.HomeHeroScreen
+import se.supernovait.bigflavour.presentation.home.HomeScreen
 import se.supernovait.bigflavour.ui.theme.BigFlavourTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
             BigFlavourTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Column(modifier = Modifier.padding(innerPadding)) {
-                        HomeHeroScreen()
+                        HomeScreen()
                     }
                 }
             }
