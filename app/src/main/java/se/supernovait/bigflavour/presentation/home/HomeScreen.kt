@@ -9,6 +9,10 @@ import se.supernovait.bigflavour.ui.theme.BigFlavourTheme
 fun HomeScreen(){
     Column {
         HomeHeroScreen()
+
+        Column {
+            WeeklySpecial()
+        }
     }
 }
 
