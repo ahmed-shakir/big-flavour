@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import se.supernovait.bigflavour.ui.theme.BigFlavourTheme
 
 @Composable
-fun PreviewContainer(content: @Composable () -> Unit) {
+fun ComponentPreviewContainer(content: @Composable () -> Unit) {
     BigFlavourTheme {
         Surface {
             content()

@@ -22,7 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import se.supernovait.bigflavour.R
-import se.supernovait.bigflavour.ui.theme.BigFlavourTheme
+import se.supernovait.bigflavour.presentation.common.container.ComponentPreviewContainer
 import se.supernovait.bigflavour.ui.theme.spacing
 
 @Composable
@@ -36,7 +36,7 @@ fun HomeHeroScreen() {
         horizontalAlignment = Alignment.Start,
         modifier = Modifier
             .fillMaxWidth()
-            .background(MaterialTheme.colorScheme.surfaceVariant)
+            .background(MaterialTheme.colorScheme.surfaceBright)
             .padding(all = defaultPadding)
     ) {
         Text(
@@ -86,7 +86,7 @@ fun HomeHeroScreen() {
 @PreviewLightDark
 @Composable
 fun HomeHeroScreenPreview() {
-    BigFlavourTheme {
+    ComponentPreviewContainer {
         HomeHeroScreen()
     }
 }

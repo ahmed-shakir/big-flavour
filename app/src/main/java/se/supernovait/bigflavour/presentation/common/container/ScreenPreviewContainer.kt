@@ -1,14 +1,19 @@
 package se.supernovait.bigflavour.presentation.common.container
 
-import androidx.compose.material3.Surface
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import se.supernovait.bigflavour.ui.theme.BigFlavourTheme
 
 @Composable
-fun PreviewContainer(content: @Composable () -> Unit) {
+fun ScreenPreviewContainer(content: @Composable () -> Unit) {
     BigFlavourTheme {
-        Surface {
-            content()
+        Scaffold {
+            Column(Modifier.padding(it)) {
+                content()
+            }
         }
     }
 }

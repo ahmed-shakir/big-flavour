@@ -1,4 +1,4 @@
-package se.supernovait.bigflavour.presentation.common
+package se.supernovait.bigflavour.presentation.common.dish_menu
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import se.supernovait.bigflavour.R
 import se.supernovait.bigflavour.domain.model.DishMenuItemData
-import se.supernovait.bigflavour.ui.theme.BigFlavourTheme
+import se.supernovait.bigflavour.presentation.common.container.ComponentPreviewContainer
 import se.supernovait.bigflavour.ui.theme.spacing
 
 @Composable
@@ -40,11 +40,11 @@ fun DishMenu(items: List<DishMenuItemData>, modifier: Modifier = Modifier) {
 @PreviewLightDark
 @Composable
 fun DishMenuPreview() {
-    BigFlavourTheme {
+    ComponentPreviewContainer {
         DishMenu(
             items = listOf(
-                DishMenuItemData("Greek Salad", "Crispy lettuce, peppers, olives...", 12.99f, R.drawable.menu_item_greek_salad, "Greek Salad Image"),
-                DishMenuItemData("Lentil Soup", "Comfort in a bowl...", 8.99f, R.drawable.menu_item_greek_salad, "Lentil Soup Image")
+                DishMenuItemData("Greek Salad", "Crispy lettuce, peppers, olives...", 12.99, R.drawable.menu_item_greek_salad, "Greek Salad Image"),
+                DishMenuItemData("Lentil Soup", "Comfort in a bowl...", 8.99, R.drawable.menu_item_greek_salad, "Lentil Soup Image")
             )
         )
     }

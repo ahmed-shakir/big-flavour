@@ -16,11 +16,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import se.supernovait.bigflavour.R
-import se.supernovait.bigflavour.ui.theme.BigFlavourTheme
+import se.supernovait.bigflavour.presentation.common.container.ComponentPreviewContainer
 import se.supernovait.bigflavour.ui.theme.spacing
 
 @Composable
-fun DishMenuItem(title: String, body: String, price: Float, imageResourceId: Int, imageDescription: String = "") {
+fun DishMenuItem(title: String, body: String, price: Double, imageResourceId: Int, imageDescription: String = "") {
     Card(shape = MaterialTheme.shapes.extraSmall, modifier = Modifier.fillMaxWidth()) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -50,32 +50,17 @@ fun DishMenuItem(title: String, body: String, price: Float, imageResourceId: Int
             }
             Image(painter = painterResource(id = imageResourceId), contentDescription = imageDescription)
         }
-        CartItemCounter() { }
-    }
-}
-
-@Composable
-fun CartItemCounter(count: Int, onIncrement: () -> Unit, onDecrement: () -> Unit) {
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.padding(MaterialTheme.spacing.extraSmall)
-    ) {
-        if (count > 0) {
-            // TODO: show +, count & -, increment/decrement on click
-        } else {
-            // TODO: show cart icon and add 1 on click
-        }
     }
 }
 
 @PreviewLightDark
 @Composable
 fun DishMenuItemPreview() {
-    BigFlavourTheme {
+    ComponentPreviewContainer {
         DishMenuItem(
             title = "Test Dish",
             body = "Very yummy",
-            price = 9.95f,
+            price = 9.95,
             imageResourceId = R.drawable.menu_item_greek_salad
         )
     }

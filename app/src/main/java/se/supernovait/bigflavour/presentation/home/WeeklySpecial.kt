@@ -11,7 +11,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import se.supernovait.bigflavour.R
-import se.supernovait.bigflavour.ui.theme.BigFlavourTheme
+import se.supernovait.bigflavour.presentation.common.container.ComponentPreviewContainer
 import se.supernovait.bigflavour.ui.theme.spacing
 
 @Composable
@@ -29,7 +29,7 @@ fun WeeklySpecial() {
 @PreviewLightDark
 @Composable
 fun WeeklySpecialPreview() {
-    BigFlavourTheme {
+    ComponentPreviewContainer {
         WeeklySpecial()
     }
 }
