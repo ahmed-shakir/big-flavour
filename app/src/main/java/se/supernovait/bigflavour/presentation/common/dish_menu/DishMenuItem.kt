@@ -1,4 +1,4 @@
-package se.supernovait.bigflavour.presentation.common
+package se.supernovait.bigflavour.presentation.common.dish_menu
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
@@ -49,6 +49,21 @@ fun DishMenuItem(title: String, body: String, price: Float, imageResourceId: Int
                 )
             }
             Image(painter = painterResource(id = imageResourceId), contentDescription = imageDescription)
+        }
+        CartItemCounter() { }
+    }
+}
+
+@Composable
+fun CartItemCounter(count: Int, onIncrement: () -> Unit, onDecrement: () -> Unit) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier.padding(MaterialTheme.spacing.extraSmall)
+    ) {
+        if (count > 0) {
+            // TODO: show +, count & -, increment/decrement on click
+        } else {
+            // TODO: show cart icon and add 1 on click
         }
     }
 }

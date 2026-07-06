@@ -8,4 +8,6 @@
     <string name="main_section_order_confirmation">Order received, we\'ll notify you when it\'s ready to pickup</string>
 
     <string name="weekly_special_title">Weekly Special</string>
+
+    <string name="cart_button_add">Add to cart</string>
 </resources>
