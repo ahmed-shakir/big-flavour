@@ -36,6 +36,7 @@ fun DishMenuItem(title: String, body: String, price: Double, imageResourceId: In
                 )
                 Text(
                     text = body,
+                    color = Color.Gray,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
                         .padding(vertical = MaterialTheme.spacing.extraSmall)
@@ -43,7 +44,6 @@ fun DishMenuItem(title: String, body: String, price: Double, imageResourceId: In
                 )
                 Text(
                     text = "AED $price",
-                    color = Color.Gray,
                     style = MaterialTheme.typography.bodyMedium,
                     fontWeight = FontWeight.Bold
                 )
