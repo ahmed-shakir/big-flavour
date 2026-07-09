@@ -21,11 +21,11 @@ import se.supernovait.bigflavour.presentation.common.container.ComponentPreviewC
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AppTopBar(scope: CoroutineScope, drawerState: DrawerState, modifier: Modifier = Modifier) {
+fun AppTopBar(scope: CoroutineScope, drawerState: DrawerState, modifier: Modifier = Modifier, title: String = stringResource(R.string.app_name)) {
     TopAppBar(
         title = {
             Text(
-                text = stringResource(R.string.app_name),
+                text = title,
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold
             )

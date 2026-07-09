@@ -1,5 +1,7 @@
 package se.supernovait.bigflavour.presentation.app
 
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -33,11 +35,23 @@ fun AppNavigationBar(navController: NavController) {
             NavigationBarItem(
                 label = { Text(text = stringResource(route.titleId)) },
                 icon = {
-                    val iconId = if (index == selectedIndex) route.selectedIconId ?: route.iconId else route.iconId
-                    Icon(
-                        painter = painterResource(id = iconId),
-                        contentDescription = stringResource(route.titleId)
-                    )
+                    BadgedBox(
+                        badge = {
+                            if (route.badgeCount != null) {
+                                Badge {
+                                    Text(text = route.badgeCount.toString())
+                                }
+                            } else if (route.hasNews) {
+                                Badge()
+                            }
+                        }
+                    ) {
+                        val iconId = if (index == selectedIndex) route.selectedIconId ?: route.iconId else route.iconId
+                        Icon(
+                            painter = painterResource(id = iconId),
+                            contentDescription = stringResource(route.titleId)
+                        )
+                    }
                 },
                 selected = index == selectedIndex,
                 onClick = {

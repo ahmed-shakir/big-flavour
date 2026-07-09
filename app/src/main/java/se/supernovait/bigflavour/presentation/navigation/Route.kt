@@ -10,6 +10,7 @@ sealed interface Route : NavigationRoute {
         override val titleId = R.string.navigation_route_title_home
         override val iconId = R.drawable.ic_home
         override val selectedIconId = R.drawable.ic_home_filled
+        override val isHome = true
     }
 
     @Serializable
@@ -24,5 +25,16 @@ sealed interface Route : NavigationRoute {
         override val titleId = R.string.navigation_route_title_settings
         override val iconId = R.drawable.ic_settings
         override val selectedIconId = R.drawable.ic_settings_filled
+    }
+
+    companion object {
+        fun parse(route: String?, defaultRoute: Route = Home): Route {
+            return when (route?.substringBefore("/")?.substringBefore("?")) {
+                Home::class.qualifiedName -> Home
+                Help::class.qualifiedName -> Help
+                Settings::class.qualifiedName -> Settings
+                else -> defaultRoute
+            }
+        }
     }
 }

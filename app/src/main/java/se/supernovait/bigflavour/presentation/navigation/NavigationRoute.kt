@@ -7,4 +7,10 @@ interface NavigationRoute {
         get() = null
     val param: String?
         get() = null
+    val isHome: Boolean
+        get() = false
+    val hasNews: Boolean
+        get() = false
+    val badgeCount: Int?
+        get() = null
 }
