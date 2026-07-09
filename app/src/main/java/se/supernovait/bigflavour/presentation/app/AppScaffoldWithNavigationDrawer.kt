@@ -11,11 +11,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import se.supernovait.bigflavour.presentation.common.container.ComponentPreviewContainer
 import se.supernovait.bigflavour.presentation.home.HomeScreen
 
 @Composable
-fun AppScaffoldWithNavigationDrawer(drawerContent: @Composable () -> Unit = {}, content: @Composable () -> Unit) {
+fun AppScaffoldWithNavigationDrawer(navController: NavController, drawerContent: @Composable () -> Unit = {}, content: @Composable () -> Unit) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
 
@@ -25,6 +27,7 @@ fun AppScaffoldWithNavigationDrawer(drawerContent: @Composable () -> Unit = {}, 
     ) {
         Scaffold(
             topBar = { AppTopBar(scope, drawerState) },
+            bottomBar = { AppNavigationBar(navController) },
             modifier = Modifier.fillMaxSize()
         ) { innerPadding ->
             Column(modifier = Modifier.padding(innerPadding)) {
@@ -38,7 +41,7 @@ fun AppScaffoldWithNavigationDrawer(drawerContent: @Composable () -> Unit = {}, 
 @Composable
 private fun AppScaffoldWithNavigationDrawerPreview() {
     ComponentPreviewContainer {
-        AppScaffoldWithNavigationDrawer() {
+        AppScaffoldWithNavigationDrawer(rememberNavController()) {
             HomeScreen()
         }
     }
