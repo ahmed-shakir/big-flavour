@@ -1,4 +1,4 @@
-package se.supernovait.bigflavour.presentation.help
+package se.supernovait.bigflavour.presentation.settings
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Text
@@ -7,16 +7,16 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import se.supernovait.bigflavour.presentation.common.container.ScreenPreviewContainer
 
 @Composable
-fun HelpScreen(){
+fun SettingsScreen(){
     Column {
-        Text(text = "Help center")
+        Text(text = "Settings")
     }
 }
 
 @PreviewLightDark
 @Composable
-fun HomeScreenPreview() {
+fun SettingsScreenPreview() {
     ScreenPreviewContainer {
-        HelpScreen()
+        SettingsScreen()
     }
 }
