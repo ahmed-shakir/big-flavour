@@ -8,6 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
@@ -24,7 +25,8 @@ fun CartItemCounter(
     onIncrement: () -> Unit,
     onDecrement: () -> Unit,
     modifier: Modifier = Modifier,
-    size: Int = 16
+    size: Int = 16,
+    color: Color = MaterialTheme.colorScheme.onSurface
 ) {
     val iconSize = (size+2).dp
 
@@ -37,10 +39,12 @@ fun CartItemCounter(
                 iconId = R.drawable.ic_remove,
                 onClick = onDecrement,
                 size = iconSize,
+                color = color,
                 contentDescription = "Decrement quantity"
             )
             Text(
                 text = "$count",
+                color = color,
                 style = MaterialTheme.typography.titleMedium,
                 fontSize = size.sp,
                 fontWeight = FontWeight.Bold,
@@ -50,6 +54,7 @@ fun CartItemCounter(
                 iconId = R.drawable.ic_add,
                 onClick = onIncrement,
                 size = iconSize,
+                color = color,
                 contentDescription = "Increment quantity"
             )
         } else {
@@ -58,6 +63,7 @@ fun CartItemCounter(
                 iconId = R.drawable.ic_add_shopping_cart,
                 onClick = onIncrement,
                 size = iconSize,
+                color = color,
                 contentDescription = "Add item to cart"
             )
         }

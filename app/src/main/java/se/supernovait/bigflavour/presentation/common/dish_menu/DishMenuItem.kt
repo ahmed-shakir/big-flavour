@@ -16,6 +16,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import se.supernovait.bigflavour.R
+import se.supernovait.bigflavour.presentation.common.cart.CartItemCounter
 import se.supernovait.bigflavour.presentation.common.container.ComponentPreviewContainer
 import se.supernovait.bigflavour.ui.theme.spacing
 
@@ -42,11 +43,14 @@ fun DishMenuItem(title: String, body: String, price: Double, imageResourceId: In
                         .padding(vertical = MaterialTheme.spacing.extraSmall)
                         .fillMaxWidth(.75f)
                 )
-                Text(
-                    text = "AED $price",
-                    style = MaterialTheme.typography.bodyMedium,
-                    fontWeight = FontWeight.Bold
-                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = "AED $price",
+                        style = MaterialTheme.typography.bodyMedium,
+                        fontWeight = FontWeight.Bold
+                    )
+                    CartItemCounter(0, {}, {}, size = 14, color = Color.Gray) // TODO: update with state/event and add color to make it secondary and not take focus from price
+                }
             }
             Image(painter = painterResource(id = imageResourceId), contentDescription = imageDescription)
         }
@@ -61,7 +65,7 @@ fun DishMenuItemPreview() {
             title = "Test Dish",
             body = "Very yummy",
             price = 9.95,
-            imageResourceId = R.drawable.menu_item_greek_salad
+            imageResourceId = R.drawable.dish_lasagna
         )
     }
 }

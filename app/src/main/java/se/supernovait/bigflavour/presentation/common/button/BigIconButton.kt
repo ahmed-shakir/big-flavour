@@ -9,6 +9,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
@@ -20,12 +21,21 @@ import se.supernovait.bigflavour.presentation.common.container.ComponentPreviewC
 import se.supernovait.bigflavour.ui.theme.spacing
 
 @Composable
-fun BigIconButton(iconId: Int, onClick: () -> Unit, modifier: Modifier = Modifier, label: String? = null, size: Dp = 24.dp, contentDescription: String? = null) {
+fun BigIconButton(
+    iconId: Int,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    label: String? = null,
+    size: Dp = 24.dp,
+    color: Color = MaterialTheme.colorScheme.onSurface,
+    contentDescription: String? = null
+) {
     if (label.isNullOrEmpty()) {
         IconButton(onClick = onClick) {
             Icon(
                 painter = painterResource(iconId),
                 contentDescription = contentDescription,
+                tint = color,
                 modifier = modifier.size(size)
             )
         }
@@ -36,27 +46,36 @@ fun BigIconButton(iconId: Int, onClick: () -> Unit, modifier: Modifier = Modifie
             onClick = onClick,
             modifier = modifier,
             size = size,
+            color = color,
             contentDescription = contentDescription
         )
     }
 }
 
 @Composable
-private fun IconTextButton(text: String, iconId: Int, onClick: () -> Unit, modifier: Modifier = Modifier, size: Dp = 24.dp, contentDescription: String? = null) {
+private fun IconTextButton(
+    text: String,
+    iconId: Int,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    size: Dp = 24.dp,
+    color: Color = MaterialTheme.colorScheme.onSurface,
+    contentDescription: String? = null
+) {
     TextButton(onClick = onClick) {
         Icon(
             painter = painterResource(iconId),
             contentDescription = contentDescription,
-            tint = MaterialTheme.colorScheme.onSurface,
-            modifier = Modifier.size(size)
+            tint = color,
+            modifier = modifier.size(size)
         )
         Text(
             text = text,
-            color = MaterialTheme.colorScheme.onSurface,
+            color = color,
             style = MaterialTheme.typography.titleMedium,
             fontSize = size.value.minus(2).sp,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(start = MaterialTheme.spacing.extraSmall)
+            modifier = modifier.padding(start = MaterialTheme.spacing.extraSmall)
         )
     }
 }

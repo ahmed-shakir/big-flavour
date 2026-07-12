@@ -6,6 +6,19 @@
     <string name="navigation_route_title_help">Help</string>
     <string name="navigation_route_title_settings">Settings</string>
 
+    <!-- SORT -->
+    <string name="sort_title">Sort</string>
+    <string name="sort_a_z">A-Z</string>
+    <string name="sort_price_ascending">Price ascending</string>
+    <string name="sort_price_descending">Price descending</string>
+
+    <!-- FILTER -->
+    <string name="filter_title">Filter</string>
+    <string name="filter_all">All</string>
+    <string name="filter_food">Food</string>
+    <string name="filter_drink">Drink</string>
+    <string name="filter_dessert">Dessert</string>
+
     <string name="main_section_title">Big Flavour</string>
     <string name="main_section_location">Dubai</string>
     <string name="main_section_button_order">Order</string>
