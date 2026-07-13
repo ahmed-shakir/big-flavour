@@ -8,7 +8,8 @@ data class ProductItem(
     val category: ProductCategory,
     val price: Double,
     @DrawableRes val image: Int,
-    val imageDescription: String = ""
+    val imageDescription: String = title,
+    val isWeeklySpecial: Boolean = false
 ) {
     companion object {
         val defaultItem = ProductItem(

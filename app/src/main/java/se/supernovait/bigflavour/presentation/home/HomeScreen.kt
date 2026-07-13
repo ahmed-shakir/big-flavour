@@ -11,6 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import kotlinx.coroutines.flow.MutableStateFlow
 import se.supernovait.bigflavour.data.LocalProductsDataSource
+import se.supernovait.bigflavour.domain.extension.filterProducts
+import se.supernovait.bigflavour.domain.model.FilterType
 import se.supernovait.bigflavour.presentation.common.container.ScreenPreviewContainer
 import se.supernovait.bigflavour.presentation.common.dish_menu.DishMenu
 import se.supernovait.bigflavour.ui.theme.spacing
@@ -27,7 +29,7 @@ fun HomeScreen() {
         Column {
             WeeklySpecial()
             Spacer(Modifier.padding(vertical = MaterialTheme.spacing.extraSmall))
-            DishMenu(items = products)
+            DishMenu(items = products.filterProducts(type = FilterType.WeeklySpecial))
         }
     }
 }

@@ -11,6 +11,7 @@ fun List<ProductItem>.filterProducts(type: FilterType): List<ProductItem> {
         FilterType.Food -> filter { it.category == ProductCategory.FOOD }
         FilterType.Drink -> filter { it.category == ProductCategory.DRINK }
         FilterType.Dessert -> filter { it.category == ProductCategory.DESSERT }
+        FilterType.WeeklySpecial -> filter { it.isWeeklySpecial }
     }
 }
 

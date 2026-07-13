@@ -5,4 +5,5 @@ sealed interface FilterType {
     data object Food : FilterType
     data object Drink : FilterType
     data object Dessert : FilterType
+    data object WeeklySpecial : FilterType
 }
