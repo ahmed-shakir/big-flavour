@@ -7,18 +7,16 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import se.supernovait.bigflavour.R
 import se.supernovait.bigflavour.presentation.common.container.ComponentPreviewContainer
 import se.supernovait.bigflavour.ui.theme.spacing
 
 @Composable
-fun WeeklySpecial() {
+fun SectionHeader(text: String) {
     Card(shape = MaterialTheme.shapes.extraSmall, modifier = Modifier.fillMaxWidth()) {
         Text(
-            text = stringResource(R.string.weekly_special_title),
+            text = text,
             style = MaterialTheme.typography.titleLarge,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(MaterialTheme.spacing.small)
@@ -30,6 +28,6 @@ fun WeeklySpecial() {
 @Composable
 fun WeeklySpecialPreview() {
     ComponentPreviewContainer {
-        WeeklySpecial()
+        SectionHeader(text = "Section Header")
     }
 }

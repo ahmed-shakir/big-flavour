@@ -3,6 +3,7 @@ package se.supernovait.bigflavour.domain.model.product
 import androidx.annotation.DrawableRes
 
 data class ProductItem(
+    val id: Long,
     val title: String,
     val description: String,
     val category: ProductCategory,
@@ -13,6 +14,7 @@ data class ProductItem(
 ) {
     companion object {
         val defaultItem = ProductItem(
+            id = 0,
             title = "",
             description = "",
             category = ProductCategory.FOOD,
