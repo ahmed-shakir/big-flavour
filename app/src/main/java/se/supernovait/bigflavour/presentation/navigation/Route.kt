@@ -2,6 +2,7 @@ package se.supernovait.bigflavour.presentation.navigation
 
 import kotlinx.serialization.Serializable
 import se.supernovait.bigflavour.R
+import se.supernovait.bigflavour.domain.model.product.ProductCategory
 
 sealed interface Route : NavigationRoute {
 
@@ -11,6 +12,24 @@ sealed interface Route : NavigationRoute {
         override val iconId = R.drawable.ic_home
         override val selectedIconId = R.drawable.ic_home_filled
         override val isHome = true
+    }
+
+    @Serializable
+    data class Product(val category: ProductCategory? = null): Route {
+        override val titleId = R.string.navigation_route_title_product
+        override val iconId = R.drawable.ic_hand_meal
+    }
+
+    @Serializable
+    data class ProductDetail(val id: Int): Route {
+        override val titleId = R.string.navigation_route_title_product_detail
+        override val iconId = R.drawable.ic_hand_meal
+    }
+
+    @Serializable
+    data object Cart: Route {
+        override val titleId = R.string.navigation_route_title_cart
+        override val iconId = R.drawable.ic_shopping_cart
     }
 
     @Serializable
@@ -31,6 +50,9 @@ sealed interface Route : NavigationRoute {
         fun parse(route: String?, defaultRoute: Route = Home): Route {
             return when (route?.substringBefore("/")?.substringBefore("?")) {
                 Home::class.qualifiedName -> Home
+                Product::class.qualifiedName -> Product()
+                ProductDetail::class.qualifiedName -> ProductDetail(0)
+                Cart::class.qualifiedName -> Cart
                 Help::class.qualifiedName -> Help
                 Settings::class.qualifiedName -> Settings
                 else -> defaultRoute

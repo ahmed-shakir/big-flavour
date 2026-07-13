@@ -23,12 +23,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import se.supernovait.bigflavour.R
+import se.supernovait.bigflavour.domain.model.product.ProductCategory
 import se.supernovait.bigflavour.presentation.common.button.BigIconButton
 import se.supernovait.bigflavour.presentation.common.container.ComponentPreviewContainer
+import se.supernovait.bigflavour.presentation.navigation.NavigationEvent
 import se.supernovait.bigflavour.ui.theme.spacing
 
 @Composable
-fun AppNavigationDrawerContent(/*TODO: onEvent: (event: AppNavigationEvent) -> Unit*/) {
+fun AppNavigationDrawerContent(onEvent: (event: NavigationEvent) -> Unit) {
     ModalDrawerSheet {
         Column(
             modifier = Modifier
@@ -50,57 +52,61 @@ fun AppNavigationDrawerContent(/*TODO: onEvent: (event: AppNavigationEvent) -> U
                 BigIconButton(
                     iconId = R.drawable.ic_close,
                     contentDescription = "Close menu",
-                    onClick = { }
+                    onClick = { onEvent(NavigationEvent.CloseNavigationDrawer) }
                 )
             }
 
             HorizontalDivider(modifier = Modifier.padding(vertical = MaterialTheme.spacing.small))
 
             Text(
-                text = "Section 1",
+                text = stringResource(R.string.navigation_drawer_section_menu_title),
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(MaterialTheme.spacing.medium)
             )
             NavigationDrawerItem(
-                label = { Text("Item 1") },
+                label = { Text(stringResource(R.string.navigation_drawer_item_food_label)) },
                 selected = false,
-                onClick = { }
+                onClick = { onEvent(NavigationEvent.NavigateToProduct(category = ProductCategory.FOOD)) }
             )
             NavigationDrawerItem(
-                label = { Text("Item 2") },
+                label = { Text(stringResource(R.string.navigation_drawer_item_drink_label)) },
                 selected = false,
-                onClick = { }
+                onClick = { onEvent(NavigationEvent.NavigateToProduct(category = ProductCategory.DRINK)) }
+            )
+            NavigationDrawerItem(
+                label = { Text(stringResource(R.string.navigation_drawer_item_dessert_label)) },
+                selected = false,
+                onClick = { onEvent(NavigationEvent.NavigateToProduct(category = ProductCategory.DESSERT)) }
             )
 
             HorizontalDivider(modifier = Modifier.padding(vertical = MaterialTheme.spacing.small))
 
             Text(
-                text = "Section 2",
+                text = stringResource(R.string.navigation_drawer_section_application_title),
                 style = MaterialTheme.typography.titleMedium,
                 modifier = Modifier.padding(MaterialTheme.spacing.medium)
             )
             NavigationDrawerItem(
-                label = { Text("Settings") },
+                label = { Text(stringResource(R.string.navigation_drawer_item_settings_label)) },
                 selected = false,
                 icon = {
                     Icon(
                         painter = painterResource(R.drawable.ic_settings),
-                        contentDescription = "Settings menu"
+                        contentDescription = stringResource(R.string.navigation_drawer_item_settings_label)
                     )
                 },
-                onClick = { }
+                onClick = { onEvent(NavigationEvent.NavigateToSettings) }
             )
             NavigationDrawerItem(
-                label = { Text("Help and feedback") },
+                label = { Text(stringResource(R.string.navigation_drawer_item_help_label)) },
                 selected = false,
                 icon = {
                     Icon(
                         painter = painterResource(R.drawable.ic_help),
-                        contentDescription = "Help menu"
+                        contentDescription = stringResource(R.string.navigation_drawer_item_help_label)
                     )
                 },
-                badge = { Text("20") }, // TODO: Placeholder
-                onClick = { },
+                onClick = { onEvent(NavigationEvent.NavigateToHelp) },
             )
             Spacer(Modifier.height(MaterialTheme.spacing.medium))
         }
@@ -111,6 +117,6 @@ fun AppNavigationDrawerContent(/*TODO: onEvent: (event: AppNavigationEvent) -> U
 @Composable
 private fun AppNavigationDrawerContentPreview() {
     ComponentPreviewContainer {
-        AppNavigationDrawerContent()
+        AppNavigationDrawerContent(onEvent = { })
     }
 }
