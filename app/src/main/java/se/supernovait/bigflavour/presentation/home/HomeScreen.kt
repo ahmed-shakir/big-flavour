@@ -5,31 +5,26 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import kotlinx.coroutines.flow.MutableStateFlow
+import se.supernovait.bigflavour.R
 import se.supernovait.bigflavour.data.LocalProductsDataSource
-import se.supernovait.bigflavour.domain.extension.filterProducts
-import se.supernovait.bigflavour.domain.model.FilterType
+import se.supernovait.bigflavour.domain.model.product.ProductItem
 import se.supernovait.bigflavour.presentation.common.container.ScreenPreviewContainer
 import se.supernovait.bigflavour.presentation.common.dish_menu.DishMenu
+import se.supernovait.bigflavour.presentation.common.section.SectionHeader
 import se.supernovait.bigflavour.ui.theme.spacing
 
 @Composable
-fun HomeScreen() {
-    val productsData = LocalProductsDataSource.getProducts() // TODO: move to viewmodel
-    val productsState = MutableStateFlow(productsData)
-    val products by productsState.collectAsState()
-
+fun HomeScreen(products: List<ProductItem>, modifier: Modifier = Modifier) {
     Column {
         HomeHeroScreen()
 
         Column {
-            WeeklySpecial()
+            SectionHeader(text = stringResource(R.string.home_section_weekly_special_title))
             Spacer(Modifier.padding(vertical = MaterialTheme.spacing.extraSmall))
-            DishMenu(items = products.filterProducts(type = FilterType.WeeklySpecial))
+            DishMenu(items = products, modifier = modifier)
         }
     }
 }
@@ -38,6 +33,6 @@ fun HomeScreen() {
 @Composable
 fun HomeScreenPreview() {
     ScreenPreviewContainer {
-        HomeScreen()
+        HomeScreen(LocalProductsDataSource.getProducts())
     }
 }

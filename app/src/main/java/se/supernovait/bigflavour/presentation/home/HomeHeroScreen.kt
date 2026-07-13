@@ -40,13 +40,13 @@ fun HomeHeroScreen() {
             .padding(all = defaultPadding)
     ) {
         Text(
-            text = stringResource(R.string.main_section_title),
+            text = stringResource(R.string.home_hero_title),
             color = MaterialTheme.colorScheme.primary,
             style = MaterialTheme.typography.displaySmall,
             fontWeight = FontWeight.Bold
         )
         Text(
-            text = stringResource(R.string.main_section_location),
+            text = stringResource(R.string.home_hero_location_label),
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier.padding(start = indentPadding)
@@ -56,7 +56,7 @@ fun HomeHeroScreen() {
             horizontalArrangement = Arrangement.Start
         ) {
             Text(
-                text = stringResource(R.string.main_section_description),
+                text = stringResource(R.string.home_hero_description),
                 color = MaterialTheme.colorScheme.onSurface,
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.fillMaxWidth(0.6f)
@@ -69,13 +69,13 @@ fun HomeHeroScreen() {
         }
         Button(
             onClick = {
-                Toast.makeText(context, R.string.main_section_order_confirmation, Toast.LENGTH_LONG).show()
+                Toast.makeText(context, R.string.home_hero_order_confirmation, Toast.LENGTH_LONG).show()
             },
             shape = MaterialTheme.shapes.small,
             modifier = Modifier.padding(start = indentPadding)
         ) {
             Text(
-                text = stringResource(R.string.main_section_button_order),
+                text = stringResource(R.string.home_hero_button_order),
                 style = MaterialTheme.typography.bodyLarge,
                 fontWeight = FontWeight.Bold
             )

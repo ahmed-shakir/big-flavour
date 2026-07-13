@@ -1,4 +1,4 @@
-package se.supernovait.bigflavour.presentation.home
+package se.supernovait.bigflavour.presentation.common.section
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
