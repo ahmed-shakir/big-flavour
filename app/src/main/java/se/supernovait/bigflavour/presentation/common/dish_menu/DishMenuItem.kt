@@ -1,6 +1,8 @@
 package se.supernovait.bigflavour.presentation.common.dish_menu
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,17 +14,30 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import se.supernovait.bigflavour.R
+import se.supernovait.bigflavour.domain.model.product.ProductItem
 import se.supernovait.bigflavour.presentation.common.cart.CartItemCounter
 import se.supernovait.bigflavour.presentation.common.container.ComponentPreviewContainer
+import se.supernovait.bigflavour.presentation.navigation.NavigationEvent
 import se.supernovait.bigflavour.ui.theme.spacing
 
 @Composable
-fun DishMenuItem(title: String, body: String, price: Double, imageResourceId: Int, imageDescription: String = "") {
-    Card(shape = MaterialTheme.shapes.extraSmall, modifier = Modifier.fillMaxWidth()) {
+fun DishMenuItem(item: ProductItem, onEvent: (NavigationEvent) -> Unit = { }) {
+    val context = LocalContext.current
+
+    Card(
+        shape = MaterialTheme.shapes.extraSmall,
+        modifier = Modifier
+            .fillMaxWidth()
+            .combinedClickable(
+                onClick = { onEvent(NavigationEvent.NavigateToProductDetail(productId = item.id)) },
+                onLongClick = { Toast.makeText(context, "Long press click", Toast.LENGTH_SHORT).show() },
+                onDoubleClick = { Toast.makeText(context, "Double click", Toast.LENGTH_SHORT).show() }
+            )
+    ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
@@ -31,12 +46,12 @@ fun DishMenuItem(title: String, body: String, price: Double, imageResourceId: In
         ) {
             Column {
                 Text(
-                    text = title,
+                    text = item.title,
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = body,
+                    text = item.description,
                     color = Color.Gray,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier
@@ -45,14 +60,14 @@ fun DishMenuItem(title: String, body: String, price: Double, imageResourceId: In
                 )
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Text(
-                        text = "AED $price",
+                        text = "AED ${item.price}",
                         style = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.Bold
                     )
                     CartItemCounter(0, {}, {}, size = 14, color = Color.Gray) // TODO: update with state/event and add color to make it secondary and not take focus from price
                 }
             }
-            Image(painter = painterResource(id = imageResourceId), contentDescription = imageDescription)
+            Image(painter = painterResource(id = item.image), contentDescription = item.imageDescription)
         }
     }
 }
@@ -61,11 +76,6 @@ fun DishMenuItem(title: String, body: String, price: Double, imageResourceId: In
 @Composable
 fun DishMenuItemPreview() {
     ComponentPreviewContainer {
-        DishMenuItem(
-            title = "Test Dish",
-            body = "Very yummy",
-            price = 9.95,
-            imageResourceId = R.drawable.dish_lasagna
-        )
+        DishMenuItem(item = ProductItem.defaultItem)
     }
 }

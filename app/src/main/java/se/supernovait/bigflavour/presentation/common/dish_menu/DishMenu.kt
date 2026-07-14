@@ -12,19 +12,14 @@ import androidx.compose.ui.tooling.preview.PreviewLightDark
 import se.supernovait.bigflavour.data.LocalProductsDataSource
 import se.supernovait.bigflavour.domain.model.product.ProductItem
 import se.supernovait.bigflavour.presentation.common.container.ComponentPreviewContainer
+import se.supernovait.bigflavour.presentation.navigation.NavigationEvent
 import se.supernovait.bigflavour.ui.theme.spacing
 
 @Composable
-fun DishMenu(items: List<ProductItem>, modifier: Modifier = Modifier) {
+fun DishMenu(items: List<ProductItem>, modifier: Modifier = Modifier, onEvent: (NavigationEvent) -> Unit = { }) {
     LazyColumn(modifier = modifier.fillMaxWidth()) {
         itemsIndexed(items) { index, item ->
-            DishMenuItem(
-                title = item.title,
-                body = item.description,
-                price = item.price,
-                imageResourceId = item.image,
-                imageDescription = item.imageDescription
-            )
+            DishMenuItem(item = item, onEvent = onEvent)
 
             if (index < items.lastIndex) {
                 Spacer(Modifier.padding(vertical = MaterialTheme.spacing.extraSmall))

@@ -11,13 +11,14 @@ import se.supernovait.bigflavour.data.LocalProductsDataSource
 import se.supernovait.bigflavour.domain.model.product.ProductItem
 import se.supernovait.bigflavour.presentation.common.container.ScreenPreviewContainer
 import se.supernovait.bigflavour.presentation.common.dish_menu.DishMenu
+import se.supernovait.bigflavour.presentation.navigation.NavigationEvent
 import se.supernovait.bigflavour.ui.theme.spacing
 
 @Composable
-fun ProductScreen(products: List<ProductItem>, modifier: Modifier = Modifier) {
+fun ProductScreen(products: List<ProductItem>, modifier: Modifier = Modifier, onEvent: (NavigationEvent) -> Unit = { }) {
     Column {
         Spacer(Modifier.padding(vertical = MaterialTheme.spacing.extraSmall))
-        DishMenu(items = products, modifier = modifier)
+        DishMenu(items = products, modifier = modifier, onEvent = onEvent)
     }
 }
 

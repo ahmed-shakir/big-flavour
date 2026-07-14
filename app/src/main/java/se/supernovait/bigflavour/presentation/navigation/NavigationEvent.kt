@@ -4,7 +4,7 @@ import se.supernovait.bigflavour.domain.model.product.ProductCategory
 
 sealed interface NavigationEvent {
     data class NavigateToProduct(val category: ProductCategory): NavigationEvent
-    data class NavigateToProductDetail(val productId: Int): NavigationEvent
+    data class NavigateToProductDetail(val productId: Long): NavigationEvent
     data object NavigateToSettings: NavigationEvent
     data object NavigateToHelp: NavigationEvent
     data object NavigateToCart: NavigationEvent

@@ -24,6 +24,7 @@ import se.supernovait.bigflavour.presentation.help.HelpScreen
 import se.supernovait.bigflavour.presentation.home.HomeScreen
 import se.supernovait.bigflavour.presentation.navigation.NavigationEvent
 import se.supernovait.bigflavour.presentation.navigation.Route
+import se.supernovait.bigflavour.presentation.product.ProductDetailScreen
 import se.supernovait.bigflavour.presentation.product.ProductScreen
 import se.supernovait.bigflavour.presentation.settings.SettingsScreen
 import se.supernovait.bigflavour.ui.theme.BigFlavourTheme
@@ -33,14 +34,13 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            // TODO: Implement sorting and filter from topbar
-            // TODO: Implement product details screen
-            // TODO: Implement navigation to details screen
-            // TODO: Add products menu to Home or general products screen
+            // TODO: Implement sorting and filter from "all" products screen
+            // TODO: Add products menu to "all" products screen
             // TODO: Add app (error) (channel) events
             // TODO: Add Events Observer
             // TODO: Add ViewModel
             // TODO: Make sure all buttons/clickable work and is handled
+            // TODO: Add tests
 
 
             BigFlavourTheme {
@@ -52,7 +52,6 @@ class MainActivity : ComponentActivity() {
 
                 fun navigate(route: Route) {
                     navController.navigate(route) {
-                        popUpTo(Route.Home)
                         launchSingleTop = true
                     }
 
@@ -107,12 +106,22 @@ class MainActivity : ComponentActivity() {
                 ) {
                     NavHost(navController = navController, startDestination = Route.Home) {
                         composable<Route.Home> {
-                            HomeScreen(products = productRepository.getWeeklySpecial())
+                            HomeScreen(products = productRepository.getWeeklySpecial(), onEvent = { event ->  handleEvent(event) })
                         }
                         composable<Route.Product> {
                             val category = it.toRoute<Route.Product>().category
 
-                            ProductScreen(products = productRepository.getProductsByCategory(category))
+                            ProductScreen(products = productRepository.getProductsByCategory(category), onEvent = { event ->  handleEvent(event) })
+                        }
+                        composable<Route.ProductDetail> {
+                            val id = it.toRoute<Route.ProductDetail>().id
+                            val product = productRepository.getProductById(id)
+
+                            if (product == null) {
+                                Toast.makeText(this@MainActivity, "Product not found", Toast.LENGTH_SHORT).show()
+                            } else {
+                                ProductDetailScreen(product = product)
+                            }
                         }
                         composable<Route.Help> {
                             HelpScreen()

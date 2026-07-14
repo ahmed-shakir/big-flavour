@@ -21,7 +21,7 @@ sealed interface Route : NavigationRoute {
     }
 
     @Serializable
-    data class ProductDetail(val id: Int): Route {
+    data class ProductDetail(val id: Long): Route {
         override val titleId = R.string.navigation_route_title_product_detail
         override val iconId = R.drawable.ic_hand_meal
     }

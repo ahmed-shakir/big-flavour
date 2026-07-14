@@ -14,17 +14,18 @@ import se.supernovait.bigflavour.domain.model.product.ProductItem
 import se.supernovait.bigflavour.presentation.common.container.ScreenPreviewContainer
 import se.supernovait.bigflavour.presentation.common.dish_menu.DishMenu
 import se.supernovait.bigflavour.presentation.common.section.SectionHeader
+import se.supernovait.bigflavour.presentation.navigation.NavigationEvent
 import se.supernovait.bigflavour.ui.theme.spacing
 
 @Composable
-fun HomeScreen(products: List<ProductItem>, modifier: Modifier = Modifier) {
+fun HomeScreen(products: List<ProductItem>, modifier: Modifier = Modifier, onEvent: (NavigationEvent) -> Unit = { }) {
     Column {
         HomeHeroScreen()
 
         Column {
             SectionHeader(text = stringResource(R.string.home_section_weekly_special_title))
             Spacer(Modifier.padding(vertical = MaterialTheme.spacing.extraSmall))
-            DishMenu(items = products, modifier = modifier)
+            DishMenu(items = products, modifier = modifier, onEvent = onEvent)
         }
     }
 }
