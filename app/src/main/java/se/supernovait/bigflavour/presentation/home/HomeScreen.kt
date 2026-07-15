@@ -32,7 +32,7 @@ fun HomeScreen(products: List<ProductItem>, modifier: Modifier = Modifier, onEve
 
 @PreviewLightDark
 @Composable
-fun HomeScreenPreview() {
+private fun HomeScreenPreview() {
     ScreenPreviewContainer {
         HomeScreen(LocalProductsDataSource.getProducts())
     }

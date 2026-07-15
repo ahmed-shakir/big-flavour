@@ -72,7 +72,7 @@ fun CartItemCounter(
 
 @PreviewLightDark
 @Composable
-fun CartItemCounterPreview() {
+private fun CartItemCounterPreview() {
     ComponentPreviewContainer {
         Column {
             CartItemCounter(1, {}, {})
@@ -82,7 +82,7 @@ fun CartItemCounterPreview() {
 
 @PreviewLightDark
 @Composable
-fun CartItemCounterEmptyPreview() {
+private fun CartItemCounterEmptyPreview() {
     ComponentPreviewContainer {
         Column {
             CartItemCounter(0, {}, {})

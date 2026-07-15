@@ -82,7 +82,7 @@ private fun IconTextButton(
 
 @PreviewLightDark
 @Composable
-fun BigIconButtonPreview() {
+private fun BigIconButtonPreview() {
     ComponentPreviewContainer {
         BigIconButton(iconId = R.drawable.ic_shopping_cart, onClick = { })
     }
@@ -90,7 +90,7 @@ fun BigIconButtonPreview() {
 
 @PreviewLightDark
 @Composable
-fun IconTextButtonPreview() {
+private fun IconTextButtonPreview() {
     ComponentPreviewContainer {
         IconTextButton(text = "Cart", iconId = R.drawable.ic_shopping_cart, onClick = { })
     }

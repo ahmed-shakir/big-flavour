@@ -85,7 +85,7 @@ fun HomeHeroScreen() {
 
 @PreviewLightDark
 @Composable
-fun HomeHeroScreenPreview() {
+private fun HomeHeroScreenPreview() {
     ComponentPreviewContainer {
         HomeHeroScreen()
     }

@@ -71,7 +71,7 @@ fun ProductDetailScreen(product: ProductItem, modifier: Modifier = Modifier) {
 
 @PreviewLightDark
 @Composable
-fun ProductDetailScreenPreview() {
+private fun ProductDetailScreenPreview() {
     ScreenPreviewContainer {
         ProductDetailScreen(LocalProductsDataSource.getProducts().first())
     }

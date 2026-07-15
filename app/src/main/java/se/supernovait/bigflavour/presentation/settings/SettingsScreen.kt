@@ -15,7 +15,7 @@ fun SettingsScreen(){
 
 @PreviewLightDark
 @Composable
-fun SettingsScreenPreview() {
+private fun SettingsScreenPreview() {
     ScreenPreviewContainer {
         SettingsScreen()
     }

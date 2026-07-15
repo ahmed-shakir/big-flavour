@@ -49,7 +49,7 @@ fun AppTopBar(
 
 @PreviewLightDark
 @Composable
-fun AppTopBarPreview() {
+private fun AppTopBarPreview() {
     ComponentPreviewContainer {
         AppTopBar(onEvent = { })
     }

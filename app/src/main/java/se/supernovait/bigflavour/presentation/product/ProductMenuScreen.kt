@@ -65,7 +65,7 @@ fun ProductMenuScreen(
 
 @PreviewLightDark
 @Composable
-fun ProductMenuScreenPreview() {
+private fun ProductMenuScreenPreview() {
     ScreenPreviewContainer {
         ProductMenuScreen(LocalProductsDataSource.getProducts())
     }

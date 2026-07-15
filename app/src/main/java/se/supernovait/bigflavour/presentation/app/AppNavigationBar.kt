@@ -70,7 +70,7 @@ fun AppNavigationBar(navController: NavController) {
 
 @PreviewLightDark
 @Composable
-fun AppNavigationBarPreview() {
+private fun AppNavigationBarPreview() {
     ComponentPreviewContainer {
         AppNavigationBar(navController = rememberNavController())
     }

@@ -74,7 +74,7 @@ fun DishMenuItem(item: ProductItem, onEvent: (NavigationEvent) -> Unit = { }) {
 
 @PreviewLightDark
 @Composable
-fun DishMenuItemPreview() {
+private fun DishMenuItemPreview() {
     ComponentPreviewContainer {
         DishMenuItem(item = ProductItem.defaultItem)
     }

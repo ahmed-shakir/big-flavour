@@ -15,7 +15,7 @@ fun HelpScreen(){
 
 @PreviewLightDark
 @Composable
-fun HelpScreenPreview() {
+private fun HelpScreenPreview() {
     ScreenPreviewContainer {
         HelpScreen()
     }

@@ -30,7 +30,7 @@ fun DishMenu(items: List<ProductItem>, modifier: Modifier = Modifier, onEvent: (
 
 @PreviewLightDark
 @Composable
-fun DishMenuPreview() {
+private fun DishMenuPreview() {
     ComponentPreviewContainer {
         DishMenu(
             items = LocalProductsDataSource.getProducts()

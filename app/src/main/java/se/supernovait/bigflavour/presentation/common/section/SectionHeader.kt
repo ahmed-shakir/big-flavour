@@ -58,14 +58,14 @@ fun SectionHeader(
 
 @PreviewLightDark
 @Composable
-fun SectionHeaderPreview() {
+private fun SectionHeaderPreview() {
     ComponentPreviewContainer {
         SectionHeader(text = "Section Header", showFilter = true)
     }
 }
 @PreviewLightDark
 @Composable
-fun SectionHeaderNoFilteringPreview() {
+private fun SectionHeaderNoFilteringPreview() {
     ComponentPreviewContainer {
         SectionHeader(text = "Section Header", showFilter = false)
     }

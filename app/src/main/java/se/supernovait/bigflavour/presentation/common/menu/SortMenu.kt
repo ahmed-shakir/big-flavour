@@ -67,7 +67,7 @@ fun SortMenu(
 
 @PreviewLightDark
 @Composable
-fun SortMenuPreview() {
+private fun SortMenuPreview() {
     ComponentPreviewContainer {
         SortMenu(selectedSortOption = SortOption.NAME_ASC, onSortOptionSelected = { })
     }

@@ -67,7 +67,7 @@ fun FilterMenu(
 
 @PreviewLightDark
 @Composable
-fun FilterMenuPreview() {
+private fun FilterMenuPreview() {
     ComponentPreviewContainer {
         FilterMenu(selectedFilterOption = FilterOption.ALL, onFilterOptionSelected = { })
     }
