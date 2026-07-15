@@ -15,9 +15,9 @@ sealed interface Route : NavigationRoute {
     }
 
     @Serializable
-    data class Product(val category: ProductCategory? = null): Route {
-        override val titleId = R.string.navigation_route_title_product
-        override val iconId = R.drawable.ic_hand_meal
+    data class ProductMenu(val category: ProductCategory? = null): Route {
+        override val titleId = R.string.navigation_route_title_product_menu
+        override val iconId = R.drawable.ic_dish_menu_book
     }
 
     @Serializable
@@ -50,7 +50,7 @@ sealed interface Route : NavigationRoute {
         fun parse(route: String?, defaultRoute: Route = Home): Route {
             return when (route?.substringBefore("/")?.substringBefore("?")) {
                 Home::class.qualifiedName -> Home
-                Product::class.qualifiedName -> Product()
+                ProductMenu::class.qualifiedName -> ProductMenu()
                 ProductDetail::class.qualifiedName -> ProductDetail(0)
                 Cart::class.qualifiedName -> Cart
                 Help::class.qualifiedName -> Help

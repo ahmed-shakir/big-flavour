@@ -25,7 +25,7 @@ import se.supernovait.bigflavour.presentation.home.HomeScreen
 import se.supernovait.bigflavour.presentation.navigation.NavigationEvent
 import se.supernovait.bigflavour.presentation.navigation.Route
 import se.supernovait.bigflavour.presentation.product.ProductDetailScreen
-import se.supernovait.bigflavour.presentation.product.ProductScreen
+import se.supernovait.bigflavour.presentation.product.ProductMenuScreen
 import se.supernovait.bigflavour.presentation.settings.SettingsScreen
 import se.supernovait.bigflavour.ui.theme.BigFlavourTheme
 
@@ -34,8 +34,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            // TODO: Implement sorting and filter from "all" products screen
-            // TODO: Add products menu to "all" products screen
             // TODO: Add app (error) (channel) events
             // TODO: Add Events Observer
             // TODO: Add ViewModel
@@ -65,7 +63,7 @@ class MainActivity : ComponentActivity() {
                 fun handleEvent(event: NavigationEvent) {
                     when(event) {
                         is NavigationEvent.NavigateToProduct -> {
-                            navigate(Route.Product(event.category))
+                            navigate(Route.ProductMenu(event.category))
                         }
                         is NavigationEvent.NavigateToProductDetail -> {
                             navigate(Route.ProductDetail(event.productId))
@@ -108,10 +106,14 @@ class MainActivity : ComponentActivity() {
                         composable<Route.Home> {
                             HomeScreen(products = productRepository.getWeeklySpecial(), onEvent = { event ->  handleEvent(event) })
                         }
-                        composable<Route.Product> {
-                            val category = it.toRoute<Route.Product>().category
+                        composable<Route.ProductMenu> {
+                            val category = it.toRoute<Route.ProductMenu>().category
 
-                            ProductScreen(products = productRepository.getProductsByCategory(category), onEvent = { event ->  handleEvent(event) })
+                            ProductMenuScreen(
+                                products = productRepository.getProductsByCategory(category),
+                                onEvent = { event ->  handleEvent(event) },
+                                showFilterBar = category == null
+                            )
                         }
                         composable<Route.ProductDetail> {
                             val id = it.toRoute<Route.ProductDetail>().id

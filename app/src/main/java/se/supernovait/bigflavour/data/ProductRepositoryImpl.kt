@@ -1,7 +1,7 @@
 package se.supernovait.bigflavour.data
 
 import se.supernovait.bigflavour.domain.extension.filterProducts
-import se.supernovait.bigflavour.domain.model.FilterType
+import se.supernovait.bigflavour.domain.model.FilterOption
 import se.supernovait.bigflavour.domain.model.product.ProductCategory
 import se.supernovait.bigflavour.domain.model.product.ProductItem
 import se.supernovait.bigflavour.domain.repository.ProductRepository
@@ -14,17 +14,17 @@ object ProductRepositoryImpl : ProductRepository {
     }
 
     override fun getProductsByCategory(category: ProductCategory?): List<ProductItem> {
-        val filterType = when(category) {
-            ProductCategory.FOOD -> FilterType.Food
-            ProductCategory.DRINK -> FilterType.Drink
-            ProductCategory.DESSERT -> FilterType.Dessert
-            else -> FilterType.All
+        val filterOption = when(category) {
+            ProductCategory.FOOD -> FilterOption.FOOD
+            ProductCategory.DRINK -> FilterOption.DRINK
+            ProductCategory.DESSERT -> FilterOption.DESSERT
+            else -> FilterOption.ALL
         }
-        return products.filterProducts(type = filterType)
+        return products.filterProducts(option = filterOption)
     }
 
     override fun getWeeklySpecial(): List<ProductItem> {
-        return products.filterProducts(type = FilterType.WeeklySpecial)
+        return products.filterProducts(option = FilterOption.WEEKLY_SPECIAL)
     }
 
     override fun getProductById(id: Long): ProductItem? {

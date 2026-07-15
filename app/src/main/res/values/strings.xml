@@ -1,22 +1,27 @@
 <resources>
     <string name="app_name">Big Flavour</string>
 
+    <!-- ACTION -->
+    <string name="action_selected">Selected</string>
+
     <!-- SORT -->
     <string name="sort_title">Sort</string>
-    <string name="sort_a_z">A-Z</string>
-    <string name="sort_price_ascending">Price ascending</string>
-    <string name="sort_price_descending">Price descending</string>
+    <string name="sort_option_name_asc">Name (A-Z)</string>
+    <string name="sort_option_name_desc">Name (Z-A)</string>
+    <string name="sort_option_price_asc">Price (Low to High)</string>
+    <string name="sort_option_price_desc">Price (High to Low)</string>
 
     <!-- FILTER -->
     <string name="filter_title">Filter</string>
-    <string name="filter_all">All</string>
-    <string name="filter_food">Food</string>
-    <string name="filter_drink">Drink</string>
-    <string name="filter_dessert">Dessert</string>
+    <string name="filter_option_all">All</string>
+    <string name="filter_option_food">Main courses</string>
+    <string name="filter_option_drink">Beverages</string>
+    <string name="filter_option_dessert">Dessert</string>
+    <string name="filter_option_weekly_special">Weekly special</string>
 
     <!-- NAVIGATION -->
     <string name="navigation_route_title_home">Home</string>
-    <string name="navigation_route_title_product">Product</string>
+    <string name="navigation_route_title_product_menu">Menu</string>
     <string name="navigation_route_title_product_detail">Product Detail</string>
     <string name="navigation_route_title_cart">Cart</string>
     <string name="navigation_route_title_help">Help</string>

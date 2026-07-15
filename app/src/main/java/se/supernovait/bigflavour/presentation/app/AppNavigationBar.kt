@@ -26,7 +26,7 @@ fun AppNavigationBar(navController: NavController) {
 
     val routes = listOf(
         Route.Home,
-        Route.Help,
+        Route.ProductMenu(),
         Route.Settings
     )
 

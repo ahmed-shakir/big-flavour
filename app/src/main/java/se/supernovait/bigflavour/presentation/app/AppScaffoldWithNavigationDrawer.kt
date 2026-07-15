@@ -36,7 +36,7 @@ fun AppScaffoldWithNavigationDrawer(
     val currentRoute = Route.parse(backStackEntry?.destination?.route)
     val titleId = when(currentRoute) {
         Route.Home -> R.string.app_name
-        is Route.Product -> backStackEntry?.toRoute<Route.Product>()?.category?.label ?: R.string.app_name
+        is Route.ProductMenu -> backStackEntry?.toRoute<Route.ProductMenu>()?.category?.label ?: currentRoute.titleId
         else -> currentRoute.titleId
     }
     val title = stringResource(titleId)
